@@ -1,0 +1,91 @@
+@mixin column ($column:4) {
+    margin-right: 30px ;
+    $variable: calc( 100% - (#{$column}-1)*30px + 30px ) ;
+    width:calc( #{$variable} / #{$column} );
+    &:nth-child( #{ $column }n) {
+        margin-right: 0;
+    }
+}
+
+@mixin font-face(
+  $name,
+  $path,
+  $weight: null,
+  $style: null,
+  $exts: eot woff2 woff ttf svg
+) {
+  $src: null;
+
+  $extmods: (
+    eot: "?",
+    svg: "#" + str-replace($name, " ", "_"),
+  );
+
+  $formats: (
+    otf: "opentype",
+    ttf: "truetype",
+  );
+
+  @each $ext in $exts {
+    $extmod: if(
+      map-has-key($extmods, $ext),
+      $ext + map-get($extmods, $ext),
+      $ext
+    );
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append(
+      $src,
+      url("../" + quote($path + "." + $extmod)) format(quote($format)),
+      comma
+    );
+  }
+
+  @font-face {
+    font-family: quote($name);
+    font-style: $style;
+    font-weight: $weight;
+    src: $src;
+    font-display: block;
+  }
+}
+
+// grid
+@mixin grid($cols: 2, $margin-right: 10px, $margin-bottom: $margin-right, $center: center) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: $center;
+  
+    > div {
+      margin-bottom: $margin-bottom;
+      width: 100%;
+  
+      @media only screen and (min-width: 480px) {
+        width: calc((100% - (#{$margin-right} + 1px)) / 2);
+        margin: 0 $margin-right $margin-bottom 0;
+  
+        &:nth-of-type(2n) {
+          margin-right: 0;
+        }
+      }
+  
+      @media only screen and (min-width: 768px) {
+        width: calc((100% - (#{$margin-right} * (#{$cols} - 1) + 1px)) / #{$cols});
+        margin: 0 $margin-right $margin-bottom 0;
+  
+        &:nth-of-type(2n) {
+          margin-right: $margin-right;
+        }
+  
+        &:nth-of-type(#{$cols}n) {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  @mixin childorder($name, $thu, $order) {
+    &__#{$name}:nth-child(#{$thu}) {
+      order: $order;
+  }
+  }

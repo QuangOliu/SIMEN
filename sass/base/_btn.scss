@@ -1,0 +1,11 @@
+.btn {
+    border: none;
+    
+    &--search {
+        padding: 0 20px;
+        background-color: white;
+        color: $primarily-color;  
+        font-size: 1.6rem;
+        font-weight: bold;
+    }
+}

@@ -1,0 +1,43 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+	font-family: 'Poppins', sans-serif;
+}
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    list-style: 1.4;
+	color: inherit;
+	font-family: 'Poppins-Light';
+}
+ol, ul,li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+a{
+	text-decoration: none;
+}
+h1,h2,h3,h4,h5,h6 {
+	margin: 0;
+	padding: 0;
+	font-size:1.4rem;
+}
+form, fieldset {
+	padding: 0;
+}
+form, fieldset, input, button {
+	border: none;
+	margin: 0;
+	display: block;
+}
+
+label {  
+    margin: 0;
+    color: #9a9a9a;
+    position: relative;
+	padding-left: 6px ;
+	text-transform: capitalize ;
+}
