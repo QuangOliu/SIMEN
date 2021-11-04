@@ -1,0 +1,122 @@
+@media screen and (max-width: 1180px) {
+    .header {
+        line-height: 1;
+        img {
+            display: none;
+            border: none;
+        }
+        a,
+        h2,
+        h3,
+        h4,
+        p {
+            margin: 0;
+            line-height: 1.6;
+            padding: 12px 0;
+            font-size: 1.2em !important;
+            font-weight: 300;
+        }
+
+        &__bottom::after {
+            z-index: -1;
+        }
+        
+        &__nav {
+            // display: none;
+            overflow: scroll;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            min-width: 250px;
+            flex-direction: column;
+            background-color: #222;
+            padding: 15px;
+            max-width: 400px;
+            a,
+            li {
+                color: #999;
+                font-size: 1.2rem;
+                font-weight: 300;
+            }
+            li {
+                font-size: 1.2rem;
+                flex-direction: column;
+                align-items: center;
+            }
+            a {
+                border-bottom: 1px solid #393939;
+                justify-content: space-between;
+            }
+        }
+
+        &__li {
+            > a {
+                height: auto;
+            }
+        }
+
+        &__img {
+            display: none;
+            a,
+            img {
+                display: none;
+                border: none;
+            }
+        }
+
+        &__sub,
+        &__drop {
+            transform: translate(0, 0);
+            overflow: hidden;
+            max-height: 1000px;
+        }
+
+        &__drop {
+            position: relative;
+            padding: 0;
+            top: 0;
+            background: #222;
+            border: none;
+            margin-left: 15px;
+        }
+
+        &__sub {
+            margin-left: 15px;
+            background: #222;
+            position: relative;
+            border: none;
+            padding: 0;
+            top: 0;
+            h4 {
+                border-bottom: 1px solid #393939;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            &-img {
+                display: none;
+            }
+            ul {
+                display: none;
+            }
+        }
+
+        &__info-bad {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            h3 {
+                width: 100%;
+                border-bottom: 1px solid #393939;
+                font-size: 1.2rem;
+                font-weight: 300;
+            }
+        }
+        //
+        .arrow::after,
+        .arrow::before {
+            display: none;
+        }
+    }
+}

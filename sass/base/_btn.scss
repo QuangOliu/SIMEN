@@ -1,11 +1,36 @@
 .btn {
+    display: inline-block;
+    text-align: center;
     border: none;
-    
+    font-size: 1.6rem;
+    font-weight: 700;
+    background-color: white;
+    color: #333;
+    transition: all 0.25s ease-in-out;
+    &:hover {
+        background-color:$primarily-color !important;
+        color: white !important;
+    }
     &--search {
         padding: 0 20px;
-        background-color: white;
         color: $primarily-color;  
-        font-size: 1.6rem;
-        font-weight: bold;
+    }
+
+    &--primary {
+        border: 1px solid rgba(#999,0.5);
+        &:hover {
+            border: 1px solid $primarily-color;
+        }
+    }
+    &--black {
+        display: inline-block;
+        background-color: #333 !important;
+        color: white;
+    }
+    &--sizeS {
+        padding: 8px 26px;
+    }
+    &--sizeL{
+        padding: 8px 48px;
     }
 }

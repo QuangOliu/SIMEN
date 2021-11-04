@@ -1,7 +1,7 @@
 .grid {
     width: 1200px;
     max-width: 100%;
-    margin: 0 auto;
+    margin: 0 auto 40px;
     padding: 0 10px;
 }
 .w100 {
@@ -11,19 +11,40 @@
     padding-top: 0;
     padding-bottom: 0;
 }
+.p020 {
+    padding: 0 20px !important;
+}
+.p0 {
+    padding: 0 !important;
+}
+.pb0 {
+    padding-bottom: 0 !important ;
+}
+.jc-center {
+    display: flex;
+    justify-content: center;
+}
 .row {
     display: flex;
     flex-wrap: wrap;
     margin: 0 -10px;
 }
+.row + .row {
+    padding-top: 24px;
+}
 .col {
-    padding: 20px 10px;
+    padding: 0 10px;
+    > a,
+    img {
+        display: block;
+        width: 100%;
+    }
+}
+.col-s {
+    padding: 0 10px;
 }
 .col-1 {
     width: 100%;
-}
-.col-1 + .col-1 {
-    padding: 20px 10px 0 10px;
 }
 .col-2 {
     width: 50%;
@@ -34,8 +55,52 @@
 .col-4 {
     width: 25%;
 }
-.active {
+.col-5 {
+    width: 20%;
+}
+.col-9 {
+    width: 11.111%;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #000000;
+    opacity: 0.2;
+    z-index: 9998;
+    display: none;
+}
+.header__list.active {
     color: #e34444 !important;
+}
+.index.active {
+    position: relative;
+    &::before {
+        content: "";
+        width: calc(100%);
+        transform: translateX(-50%);
+        // transform: translateY(100%);
+        height: 2px;
+        background-color: #333;
+        position: absolute;
+        // bottom: 32%;
+        bottom: 0;
+        left: 50%;
+    }
+    &::after {
+        content: "";
+        display: block;
+        border: 10px solid;
+        border-color: #333 transparent transparent transparent;
+        position: absolute;
+        bottom: 6%;
+        // bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 105%);
+    }
 }
 // tao man 2 dong xen ke
 
@@ -131,6 +196,29 @@
     background-color: rgba(0, 0, 0, 0.3);
 }
 //
+.border--right {
+    border-right: 1px solid #eaeaea;
+}
+// ON SALES
+.on-sale {
+    position: relative;
+    overflow: hidden;
+    &::before {
+        content: "sale!";
+        background: $primarily-color;
+        padding: 1px 40px;
+        text-transform: uppercase;
+        color: white;
+        font-size: 9px;
+        font-weight: 300;
+        position: absolute;
+        top: 5px;
+        right: -40px;
+
+        z-index: 6;
+        transform: rotate(45deg);
+    }
+}
 .Plus {
     position: relative;
     display: block;
@@ -151,7 +239,7 @@
 .Plus:hover:before {
     transform: scale(1) rotate(0deg);
     opacity: 0.6;
-    visibility:visible;
+    visibility: visible;
 }
 .NoPad {
     padding: 0 !important;
@@ -201,15 +289,25 @@
         // visibility: hidden;
     }
     &::after {
-        border-color: transparent transparent #fff transparent;
+        border-color: transparent transparent red transparent;
         left: 50%;
         top: 26px;
     }
     &::before {
-        border-color: transparent transparent rgba($color: #999, $alpha: 0.3) transparent;
+        border-color: transparent transparent rgba($color: blue, $alpha: 0.3) transparent;
         left: calc(50% + 1px);
         top: 25px;
     }
+    // &::after {
+    //     border-color: transparent transparent red transparent;
+    //     left: 50%;
+    //     top: 26px;
+    // }
+    // &::before {
+    //     border-color: transparent transparent rgba($color: blue, $alpha: 0.3) transparent;
+    //     left: calc(50% + 1px);
+    //     top: 25px;
+    // }
 }
 
 .stick {
@@ -241,4 +339,20 @@
 }
 .block {
     display: block;
+}
+
+.open {
+    max-height: 1000px;
+}
+
+@media screen and (max-width: 1180px) {
+    .row-xl {
+        flex-direction: column;
+    }
+    .col-xl-1 {
+        width: 100%;
+    }
+    .displayNone-xl {
+        display:none;
+    }
 }
