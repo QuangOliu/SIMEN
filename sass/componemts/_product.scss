@@ -62,10 +62,15 @@
         }
         &:hover {
             background-color: $primarily-color;
-            //color:#fff;
+        }
+        &:hover i {
+            animation: mymove 0.75 infinite;
         }
     }
     &__icon {
+        background: #fff;
+        border-top: 1px solid rgba(#999, 0.4);
+        padding: 8px 10px;
         line-height: 35px;
         &:hover {
             color: $primarily-color;
@@ -74,8 +79,7 @@
     &__other {
         transform: translateX(-101%);
         transition: all 0.25s ease-in-out;
-        display: flex; 
-
+        display: flex;
     }
     &__item:hover &__other,
     &__item:hover &__cart {
