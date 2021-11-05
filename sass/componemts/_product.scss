@@ -48,17 +48,17 @@
         transition: all 0.25s ease-in-out;
         i {
             font-size: 12px;
+            padding: 5px;
         }
     }
     &__cart {
         font-size: 15px;
         background-color: #333;
         transform: translateX(calc(100% + 5px));
-        height: 35px;
-
         a {
             color: #fff;
             line-height: 35px;
+            padding: 5px;
         }
         &:hover {
             background-color: $primarily-color;
@@ -74,8 +74,8 @@
     &__other {
         transform: translateX(-101%);
         transition: all 0.25s ease-in-out;
-        display: flex;
-        height: 35px;
+        display: flex; 
+
     }
     &__item:hover &__other,
     &__item:hover &__cart {

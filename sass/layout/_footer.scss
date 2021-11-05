@@ -1,6 +1,9 @@
 .footer {
-    padding: 45px 0;
-    background-color: #f8f8f6;
+    &__top {
+
+        padding: 45px 0;
+        background-color: #f8f8f6;
+    }
     h3 {
         font-size: 1.6rem;
         color: #333;
@@ -13,6 +16,8 @@
     }
 
     input {
+        max-width: 100%;
+        width: 100%;
         font-size:1.6rem;
         padding: 8px;
         margin: 20px 0;
@@ -85,7 +90,15 @@
         a {
             color: #fff;
             display: inline-block;
-            width: auto;
         }
+    }
+
+    &__bottom {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+
     }
 }

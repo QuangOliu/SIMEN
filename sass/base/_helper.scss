@@ -20,6 +20,12 @@
 .pb0 {
     padding-bottom: 0 !important ;
 }
+.mb0 {
+    margin-bottom: 0;
+}
+.mr24 {
+    margin-right: 24px; 
+}
 .jc-center {
     display: flex;
     justify-content: center;
@@ -61,20 +67,29 @@
 .col-9 {
     width: 11.111%;
 }
-
+.backdrop,
 .overlay {
     position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: #000000;
-    opacity: 0.2;
     z-index: 9998;
     display: none;
 }
+.overlay {
+    background-color: #000000;
+    opacity: 0.2;
+}
+.backdrop.active,
+.overlay.active {
+    display: block;
+}
 .header__list.active {
     color: #e34444 !important;
+}
+.show-js.active {
+    transform: translateX(0);
 }
 .index.active {
     position: relative;
@@ -342,7 +357,8 @@
 }
 
 .open {
-    max-height: 1000px;
+    max-height: 1000px !important;
+    transition: all 0.25s ease;
 }
 
 @media screen and (max-width: 1180px) {

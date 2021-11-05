@@ -26,14 +26,14 @@ $(document).ready(function () {
             {
                 breakpoint: 600,
                 settings: {
-                    slidesToShow: 4,
+                    slidesToShow: 3,
                     slidesToScroll: 1,
                 },
             },
             {
                 breakpoint: 480,
                 settings: {
-                    slidesToShow: 2,
+                    slidesToShow: 1,
                     slidesToScroll: 1,
                 },
             },
@@ -52,22 +52,14 @@ $(".most__slick").slick({
 
     responsive: [
         {
-            breakpoint: 1024,
+            breakpoint: 980,
             settings: {
                 slidesToShow: 2,
-                slidesToScroll: 2,
+                slidesToScroll: 1,
             },
         },
         {
             breakpoint: 600,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                infinite: false,
-            },
-        },
-        {
-            breakpoint: 480,
             settings: {
                 slidesToShow: 1,
                 slidesToScroll: 1,
@@ -108,103 +100,59 @@ $(document).ready(function () {
         return false;
     });
 });
-// PRODUCT DAY TIEN
-// $(document).ready(function() {
-//     $(".product .product__nav").hide();
-//     $(".product .product__nav:first-child").fadeIn();
+//show menu
+$(document).ready(function () {
+    var click = document.querySelector(".bar");
+    var show = document.querySelector(".show-js");
+    var overlay = document.querySelector(".overlay");
 
-//     $(".product .product__for li").click(function(){
-//         //avtive tab
-//         $(".product .product__for li").removeClass("active");
-//         $(this).addClass("active");
-//         //show content
-//         let content = $(this).children("a").attr("href");
-//         $(".product .product__nav").fadeOut();
-//         $(content).fadeIn();
-//         return false;
-//     });
-// });
+    click.addEventListener("click", function () {
+        show.classList.add("active");
+        overlay.classList.add("active");
+    });
 
-// $(document).ready(function() {
-//     $(".test .product__nav").hide();
-//     $(".test .product__nav:first-child").fadeIn();
+    overlay.addEventListener("click", function () {
+        show.classList.remove("active");
+        overlay.classList.remove("active");
+    });
+    show.addEventListener("click", function (e) {
+        e.stopPropagation();
+    });
+});
+// drop menu
 
-//     $(".test .product__for li").click(function(){
-//         //avtive tab
-//         $(".test .product__for li").removeClass("active");
-//         $(this).addClass("active");
-//         //show content
-//         let content = $(this).children("a").attr("href");
-//         $(".test .product__nav").fadeOut();
-//         $(content).fadeIn();
-//         return false;
-//     });
-// });
+$(document).ready(function () {
+    var click = document.querySelectorAll(".click");
+    var drop = document.querySelectorAll(".drop");
+    // var list = document.querySelectorAll(".header__list");
 
-//
-// var acordion = document.getElementsByClassName('accordion');
+    click.forEach(function (tab, index) {
+        tab.onclick = function () {
+            drop[index].classList.toggle("open");
+            $(this).children("i").toggleClass("fa-plus-circle fa-minus-circle");
 
-// var i;
-// var len = acordion.length;
-// for(i = 0; i<len; i++){
-//     acordion[i].addEventListener('click', function(){
-//         this.classList.toggle('active');
-//         var panal = this.nextElementSibling;
-//         if(panal.style.maxHeight){
-//             panal.style.maxHeight = null;
-//         }else{
-//             panal.style.maxHeight = panal.scrollHeight + 'px';
-//         }
-//     })
-// }
-
-
-// jQuery(document).ready(function ($) {
-//     $("#menu_offcanvas").SnsAccordion({
-//         btn_open: '<span class="ac-tongle open"></span>',
-//         btn_close: '<span class="ac-tongle close"></span>',
-//     });
-//     $("#sns_respmenu .btn2.offcanvas").on("click", function () {
-//         if ($("#menu_offcanvas").hasClass("active")) {
-//             $(this).find(".overlay").fadeOut(250);
-//             $("#menu_offcanvas").removeClass("active");
-//             $("body").removeClass("show-sidebar", 4000);
-//         } else {
-//             $("#menu_offcanvas").addClass("active");
-//             $(this).find(".overlay").fadeIn(250);
-//             $("body").addClass("show-sidebar");
-//         }
-//     });
-
-//     if ($("#sns_content .sns-right").length) {
-//         $("#sns_respmenu .btn2.rightsidebar")
-//             .css("display", "inline-block")
-//             .on("click", function () {
-//                 if ($("#sns_content .sns-right").hasClass("active")) {
-//                     $(this).find(".overlay").fadeOut(250);
-//                     $("#sns_content .sns-right").removeClass("active");
-//                     $("body").removeClass("show-sidebar", 4000);
-//                 } else {
-//                     $("#sns_content .sns-right").addClass("active");
-//                     $(this).find(".overlay").fadeIn(250);
-//                     $("body").addClass("show-sidebar");
-//                 }
-//             });
-//     }
-
-//     if ($("#sns_content .sns-left").length) {
-//         $("#sns_respmenu .btn2.leftsidebar")
-//             .css("display", "inline-block")
-//             .on("click", function () {
-//                 if ($("#sns_content .sns-left").hasClass("active")) {
-//                     $(this).find(".overlay").fadeOut(250);
-//                     $("#sns_content .sns-left").removeClass("active");
-//                     $("body").removeClass("show-sidebar", 4000);
-//                 } else {
-//                     $("#sns_content .sns-left").addClass("active");
-//                     $(this).find(".overlay").fadeIn();
-//                     $("body").addClass("show-sidebar");
-//                 }
-//             });
-//     }
-// });
+            return false;
+        };
+    });
+});
+// hien thi menu san phan
+$(document).ready(function () {
+    var clicks = document.querySelectorAll(".bar-2");
+    var shows = document.querySelectorAll(".product__for");
+    var backdrop = document.querySelector(".backdrop");
+    var show;
+    if (screen.width < 980) {
+        clicks.forEach(function (tab, index) {
+            tab.onclick = function () {
+                show = shows[index];
+                // console.log(show)
+                show.classList.add("active");
+                backdrop.classList.add("active");
+                backdrop.addEventListener("click", function () {
+                    show.classList.remove("active");
+                    backdrop.classList.remove("active");
+                });
+            };
+        });
+    }
+});
