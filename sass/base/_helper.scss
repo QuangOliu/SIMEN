@@ -20,6 +20,9 @@
 .pb0 {
     padding-bottom: 0 !important ;
 }
+.m0 {
+    margin: 0!important;
+}
 .mb0 {
     margin-bottom: 0;
 }
@@ -179,6 +182,7 @@
 .border {
     position: relative;
     display: block;
+
     &::before {
         content: "";
         position: absolute;
@@ -190,6 +194,7 @@
         right: 15px;
         transition: all 0.25s ease-in-out;
     }
+    
     &::after {
         content: "";
         position: absolute;

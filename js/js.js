@@ -40,7 +40,6 @@ $(document).ready(function () {
         ],
     });
 });
-
 $(".most__slick").slick({
     // infinite: false,
     speed: 300,
@@ -68,11 +67,11 @@ $(".most__slick").slick({
         },
     ],
 });
-
 // tabs
 $(document).ready(function () {
     var btn = $(".product .product__for .product__list"),
         info = $(".product .product__nav");
+
     btn.click(function (e) {
         e.preventDefault();
 
@@ -85,6 +84,7 @@ $(document).ready(function () {
         return false;
     });
 });
+// tab
 $(document).ready(function () {
     var btn = $(".part2 .product__for .product__list"),
         info = $(".part2 .product__nav");
@@ -120,7 +120,6 @@ $(document).ready(function () {
     });
 });
 // drop menu
-
 $(document).ready(function () {
     var click = document.querySelectorAll(".click");
     var drop = document.querySelectorAll(".drop");
@@ -155,4 +154,68 @@ $(document).ready(function () {
             };
         });
     }
+});
+
+$(document).ready(function () {
+    // them san pham vao cart
+    var clicks = document.querySelectorAll(".cart-js");
+    var imgs = document.querySelectorAll(".product__img img");
+    var titles = document.querySelectorAll(".product__title");
+    var totalPrice = document.querySelector(".cart__total-price-js");
+    var newPrices = document.querySelectorAll(".price-js");
+    var sum = 0;
+
+    function add(img, title, newPrice) {
+        const main = document.getElementById("cart");
+        const toast = document.createElement("li");
+        toast.innerHTML = `
+        <div class="cart__item">
+            <div class="cart__img">
+                <a href="">
+                    <img src="${img}"
+                    alt=""/>
+                </a>
+            </div>
+            <div class="cart__info">
+                <a href="" class="cart__item-title"> ${title} </a>
+                <div class="">
+                    <span class="cart__item-price">$ 
+                        <span class="cart__price-js">
+                            ${newPrice}
+                        </span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="cart__close">
+            <i class="fas fa-times-circle"></i>
+        </div>`;
+        main.appendChild(toast);
+
+        // xoa san pham
+        var lis = document.querySelectorAll("#cart li");
+        var closes = document.querySelectorAll("#cart .cart__close i");
+        var prs = document.querySelectorAll("#cart li .cart__price-js");
+
+        closes.forEach(function (tab, index) {
+            tab.onclick = function () {
+                sum = sum - Number(prs[index].innerHTML);
+                totalPrice.innerHTML = sum.toFixed(2);
+                main.removeChild(lis[index]);
+            };
+        });
+    }
+
+    clicks.forEach(function (tab, index) {
+        tab.onclick = function () {
+            var img = imgs[index].currentSrc;
+            var title = titles[index].innerHTML;
+            var newPrice = newPrices[index].innerHTML;
+
+            sum = sum + Number(newPrice);
+            add(img, title, newPrice);
+            totalPrice.innerHTML = sum.toFixed(2);
+            return false;
+        };
+    });
 });

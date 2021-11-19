@@ -33,4 +33,11 @@
     &--sizeL{
         padding: 8px 48px;
     }
+    &--full-size {
+        width: 100%;
+    }
+}
+
+.btn + .btn {
+    margin-top: 12px;
 }
